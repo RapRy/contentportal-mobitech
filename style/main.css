@@ -1,0 +1,617 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600&display=swap");
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #0d1b2a;
+  font-family: "Mukta", sans-serif;
+}
+
+.main-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.skel-card-container {
+  height: 280px;
+  position: relative;
+}
+
+.skel-card-container .skel-card-upper-part {
+  position: relative;
+  height: 80px;
+}
+
+.skel-card-container .skel-card-upper-part .skel-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 2;
+}
+
+.skel-card-container .skel-card-upper-part .skel-upper-part-details {
+  position: relative;
+  height: 50%;
+  border-bottom: 2px solid #585858;
+}
+
+.skel-card-container .skel-card-upper-part .skel-upper-part-details::before {
+  content: "";
+  display: block;
+  margin-right: 5px;
+  background: linear-gradient(-45deg, #dee2e6, #f8f9fa, #585858);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 2.25s ease infinite;
+          animation: Gradient 2.25s ease infinite;
+  width: 100px;
+  height: 16px;
+  border-radius: 3px;
+  right: 0;
+  bottom: 2px;
+  position: absolute;
+}
+
+.skel-card-container .skel-card-upper-part .skel-upper-part-details::after {
+  content: "";
+  display: block;
+  margin-right: 5px;
+  background: linear-gradient(-45deg, #dee2e6, #f8f9fa, #585858);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 2.25s ease infinite;
+          animation: Gradient 2.25s ease infinite;
+  width: 80px;
+  height: 16px;
+  border-radius: 3px;
+  right: 0;
+  bottom: -20px;
+  position: absolute;
+}
+
+.skel-card-container .skel-card-middle-part {
+  padding: 30px 20px;
+}
+
+.skel-card-container .skel-card-middle-part .skel-title {
+  width: 80%;
+  height: 24px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.skel-card-container .skel-card-middle-part .skel-description {
+  width: 100%;
+  height: 14px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.skel-card-container .skel-card-middle-part .skel-description:last-child {
+  margin-bottom: 0;
+  width: 70%;
+}
+
+.skel-card-container .skel-card-lower-part {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.skel-card-container .skel-card-lower-part .skel-dl-btn {
+  width: 100%;
+  height: 34px;
+  border-radius: 3px;
+}
+
+.main-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  padding: 20px 25px;
+}
+
+.main-header .brand-logo {
+  color: #0096ff;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.main-header .burger-icon {
+  position: relative;
+  width: 30px;
+  height: 19px;
+  cursor: pointer;
+}
+
+.main-header .burger-icon span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: inherit;
+  height: 3px;
+  background-color: #fafcfc;
+}
+
+.main-header .burger-icon::after {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  content: "";
+  display: block;
+  width: 23px;
+  height: 3px;
+  background-color: #fafcfc;
+}
+
+.main-header .burger-icon::before {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  content: "";
+  display: block;
+  width: inherit;
+  height: 3px;
+  background-color: #fafcfc;
+}
+
+.main-header .nav-mobile-container {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0d1b2a;
+  padding: 20px 10px;
+  text-align: right;
+  opacity: 0;
+  z-index: 5;
+}
+
+.main-header .nav-mobile-container i {
+  font-size: 3.4rem;
+  color: #fafcfc;
+  cursor: pointer;
+}
+
+.main-header .nav-mobile-container > div {
+  text-align: center;
+}
+
+.main-header .nav-mobile-container .mobile-nav-link-container {
+  margin: 30px 0;
+}
+
+.main-header .nav-mobile-container .mobile-nav-link-container a {
+  font-size: 1.5rem;
+  color: #fafcfc;
+  font-weight: 700;
+  position: relative;
+  padding: 0 10px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.main-header .nav-mobile-container .mobile-nav-link-container a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 6px;
+  background-color: #2ebbc0;
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: left 100ms linear;
+  transition: left 100ms linear;
+}
+
+.main-header .nav-mobile-container .mobile-nav-link-container a:active::after, .main-header .nav-mobile-container .mobile-nav-link-container a:hover::after, .main-header .nav-mobile-container .mobile-nav-link-container a.active::after {
+  left: 0;
+}
+
+.subcategories-container {
+  background-color: #f8f9fa;
+  padding: 20px 30px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.subcategories-container i {
+  color: #0d1b2a;
+  font-size: 2.3rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.subcategories-container i:first-of-type {
+  left: -5px;
+}
+
+.subcategories-container i:last-of-type {
+  right: -5px;
+}
+
+.subcategories-container .subcategories-list {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.subcategories-container .subcategories-list .subcategories {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: -webkit-transform 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: -webkit-transform 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), -webkit-transform 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.subcategories-container .subcategories-list .subcategories a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0d1b2a;
+  margin-right: 30px;
+}
+
+.subcategories-container .subcategories-list .subcategories a:last-child {
+  margin-right: 0;
+}
+
+.content-list-container {
+  margin: 50px 30px;
+}
+
+.content-list-container .content-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.content-list-container .content-list .card-container {
+  height: 280px;
+  position: relative;
+}
+
+.content-list-container .content-list .card-container .card-upper-part {
+  position: relative;
+  height: 80px;
+}
+
+.content-list-container .content-list .card-container .card-upper-part img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 2;
+}
+
+.content-list-container .content-list .card-container .card-upper-part .upper-part-details {
+  position: relative;
+  height: 50%;
+  border-bottom: 2px solid #585858;
+}
+
+.content-list-container .content-list .card-container .card-upper-part .upper-part-details::before {
+  content: attr(data-category);
+  text-align: right;
+  margin-right: 5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #585858;
+  font-weight: 500;
+  right: 0;
+  bottom: 2px;
+  position: absolute;
+}
+
+.content-list-container .content-list .card-container .card-upper-part .upper-part-details::after {
+  content: attr(data-subcategory);
+  text-align: right;
+  margin-right: 5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #585858;
+  font-weight: 500;
+  right: 0;
+  bottom: -20px;
+  position: absolute;
+}
+
+.content-list-container .content-list .card-container .card-middle-part {
+  padding: 30px 20px;
+}
+
+.content-list-container .content-list .card-container .card-middle-part h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0096ff;
+  margin-bottom: 10px;
+}
+
+.content-list-container .content-list .card-container .card-middle-part div {
+  position: relative;
+  overflow-y: hidden;
+  height: 43px;
+}
+
+.content-list-container .content-list .card-container .card-middle-part div::after {
+  content: "...";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: block;
+  padding: 0 0 3px 0;
+  background-color: #0d1b2a;
+  color: #fafcfc;
+  font-size: 0.9rem;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.content-list-container .content-list .card-container .card-middle-part div p {
+  color: #fafcfc;
+  font-size: 0.9rem;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.content-list-container .content-list .card-container .card-lower-part {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.content-list-container .content-list .card-container .card-lower-part a {
+  color: #fafcfc;
+  padding: 10px 20px;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.content-list-container .content-list .card-container .card-lower-part a:hover::before, .content-list-container .content-list .card-container .card-lower-part a:active::before {
+  top: 0%;
+}
+
+.content-list-container .content-list .card-container .card-lower-part a:hover::after, .content-list-container .content-list .card-container .card-lower-part a:active::after {
+  top: 100%;
+}
+
+.content-list-container .content-list .card-container .card-lower-part a::after, .content-list-container .content-list .card-container .card-lower-part a::before {
+  -webkit-transition: top 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: top 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.content-list-container .content-list .card-container .card-lower-part a::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  background-color: #2ebbc0;
+  z-index: -1;
+}
+
+.content-list-container .content-list .card-container .card-lower-part a::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: -100%;
+  display: block;
+  background-color: #0096ff;
+  z-index: -1;
+}
+
+.content-list-container .show-more-btn {
+  padding: 10px 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0096ff;
+  background-color: #f8f9fa;
+  width: 200px;
+  margin: 50px auto 0;
+  display: block;
+  border: none;
+  cursor: pointer;
+}
+
+.gradient-anim {
+  background: linear-gradient(-45deg, #dee2e6, #f8f9fa, #585858);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 2.25s ease infinite;
+          animation: Gradient 2.25s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/*# sourceMappingURL=main.css.map */

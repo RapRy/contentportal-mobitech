@@ -1,0 +1,598 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600&display=swap");
+
+$primary-font: "Mukta", sans-serif;
+
+$primary: #0096ff;
+$secondary: #2ebbc0;
+$common-black: #0d1b2a;
+$common-white: #fafcfc;
+$neutral-1: #f8f9fa;
+$neutral-2: #dee2e6;
+$neutral-3: #585858;
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: $common-black;
+  font-family: $primary-font;
+}
+
+.main-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+// loaders start
+.skel-card-container {
+  height: 280px;
+  position: relative;
+
+  .skel-card-upper-part {
+    position: relative;
+    height: 80px;
+
+    .skel-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 10px;
+      z-index: 2;
+    }
+
+    .skel-upper-part-details {
+      position: relative;
+      height: 50%;
+      border-bottom: 2px solid $neutral-3;
+
+      &::before {
+        content: "";
+        display: block;
+        margin-right: 5px;
+        background: linear-gradient(-45deg, $neutral-2, $neutral-1, $neutral-3);
+        background-size: 400% 400%;
+        animation: Gradient 2.25s ease infinite;
+        width: 100px;
+        height: 16px;
+        border-radius: 3px;
+        right: 0;
+        bottom: 2px;
+        position: absolute;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        margin-right: 5px;
+        background: linear-gradient(-45deg, $neutral-2, $neutral-1, $neutral-3);
+        background-size: 400% 400%;
+        animation: Gradient 2.25s ease infinite;
+        width: 80px;
+        height: 16px;
+        border-radius: 3px;
+        right: 0;
+        bottom: -20px;
+        position: absolute;
+      }
+    }
+  }
+
+  .skel-card-middle-part {
+    padding: 30px 20px;
+
+    .skel-title {
+      width: 80%;
+      height: 24px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+
+    .skel-description {
+      width: 100%;
+      height: 14px;
+      border-radius: 3px;
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+        width: 70%;
+      }
+    }
+  }
+
+  .skel-card-lower-part {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    .skel-dl-btn {
+      width: 100%;
+      height: 34px;
+      border-radius: 3px;
+    }
+  }
+}
+// loaders end
+
+.main-header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 20px 25px;
+
+  .brand-logo {
+    color: $primary;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .burger-icon {
+    position: relative;
+    width: 30px;
+    height: 19px;
+    cursor: pointer;
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: inherit;
+      height: 3px;
+      background-color: $common-white;
+    }
+
+    &::after {
+      position: absolute;
+      top: 8px;
+      right: 0;
+      content: "";
+      display: block;
+      width: 23px;
+      height: 3px;
+      background-color: $common-white;
+    }
+
+    &::before {
+      position: absolute;
+      top: 16px;
+      right: 0;
+      content: "";
+      display: block;
+      width: inherit;
+      height: 3px;
+      background-color: $common-white;
+    }
+  }
+
+  .nav-mobile-container {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $common-black;
+    padding: 20px 10px;
+    text-align: right;
+    opacity: 0;
+    z-index: 5;
+
+    i {
+      font-size: 3.4rem;
+      color: $common-white;
+      cursor: pointer;
+    }
+
+    > div {
+      text-align: center;
+    }
+
+    .mobile-nav-link-container {
+      margin: 30px 0;
+
+      a {
+        font-size: 1.5rem;
+        color: $common-white;
+        font-weight: 700;
+        position: relative;
+        padding: 0 10px;
+        overflow: hidden;
+        display: inline-block;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 6px;
+          background-color: $secondary;
+          position: absolute;
+          top: 50%;
+          left: -100%;
+          transform: translateY(-50%);
+          transition: left 100ms linear;
+        }
+
+        &:active,
+        &:hover,
+        &.active {
+          &::after {
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.subcategories-container {
+  background-color: $neutral-1;
+  padding: 20px 30px;
+  position: relative;
+  overflow-x: hidden;
+
+  i {
+    color: $common-black;
+    font-size: 2.3rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    &:first-of-type {
+      left: -5px;
+    }
+
+    &:last-of-type {
+      right: -5px;
+    }
+  }
+
+  .subcategories-list {
+    overflow: hidden;
+    white-space: nowrap;
+
+    .subcategories {
+      transform: translateX(0);
+      transition: transform 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+      a {
+        font-size: 1rem;
+        font-weight: 500;
+        color: $common-black;
+        margin-right: 30px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.content-list-container {
+  margin: 50px 30px;
+
+  .content-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+
+    .card-container {
+      height: 280px;
+      position: relative;
+
+      .card-upper-part {
+        position: relative;
+        height: 80px;
+
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          position: absolute;
+          top: 0;
+          left: 10px;
+          z-index: 2;
+        }
+
+        .upper-part-details {
+          position: relative;
+          height: 50%;
+          border-bottom: 2px solid $neutral-3;
+
+          &::before {
+            content: attr(data-category);
+            text-align: right;
+            margin-right: 5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: $neutral-3;
+            font-weight: 500;
+            right: 0;
+            bottom: 2px;
+            position: absolute;
+          }
+
+          &::after {
+            content: attr(data-subcategory);
+            text-align: right;
+            margin-right: 5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: $neutral-3;
+            font-weight: 500;
+            right: 0;
+            bottom: -20px;
+            position: absolute;
+          }
+        }
+      }
+
+      .card-middle-part {
+        padding: 30px 20px;
+
+        h4 {
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: $primary;
+          margin-bottom: 10px;
+        }
+
+        div {
+          position: relative;
+          overflow-y: hidden;
+          height: 43px;
+
+          &::after {
+            content: "...";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: block;
+            padding: 0 0 3px 0;
+            background-color: $common-black;
+            color: $common-white;
+            font-size: 0.9rem;
+            line-height: 20px;
+            font-weight: 400;
+          }
+
+          p {
+            color: $common-white;
+            font-size: 0.9rem;
+            line-height: 20px;
+            font-weight: 400;
+          }
+        }
+      }
+
+      .card-lower-part {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+
+        a {
+          color: $common-white;
+          padding: 10px 20px;
+          display: block;
+          font-size: 0.9rem;
+          font-weight: 700;
+          position: relative;
+          overflow-y: hidden;
+
+          &:hover,
+          &:active {
+            &::before {
+              top: 0%;
+            }
+
+            &::after {
+              top: 100%;
+            }
+          }
+
+          &::after,
+          &::before {
+            transition: top 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+
+          &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            background-color: $secondary;
+            z-index: -1;
+          }
+
+          &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: -100%;
+            display: block;
+            background-color: $primary;
+            z-index: -1;
+          }
+        }
+      }
+    }
+  }
+
+  .show-more-btn {
+    padding: 10px 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $primary;
+    background-color: $neutral-1;
+    width: 200px;
+    margin: 50px auto 0;
+    display: block;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+// keyframes animation
+.gradient-anim {
+  background: linear-gradient(-45deg, $neutral-2, $neutral-1, $neutral-3);
+  background-size: 400% 400%;
+  animation: Gradient 2.25s ease infinite;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
