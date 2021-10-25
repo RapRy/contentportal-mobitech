@@ -3,13 +3,13 @@
 
     function get_contents($mysqli, $category, $subcategory, $offset){
         $stmt = $mysqli->stmt_init();
-        $stmt->prepare("SELECT id, title, category_id, sub_category_id, content_file_name, icon_file_name, description FROM cms.portal_content WHERE category_id = ? AND sub_category_id = ? LIMIT $offset, 10");
+        $stmt->prepare("SELECT id, title, category_id, sub_category_id, content_file_name, icon_file_name, description, content_file_mime FROM cms.portal_content WHERE category_id = ? AND sub_category_id = ? LIMIT $offset, 10");
         $stmt->bind_param("ii", $category, $subcategory);
         $stmt->execute();
         $stmt->store_result();
         if($stmt->num_rows() > 0){
 
-            $stmt->bind_result($id, $title, $category_id, $sub_category_id, $content_file_name, $icon_file_name, $description);
+            $stmt->bind_result($id, $title, $category_id, $sub_category_id, $content_file_name, $icon_file_name, $description, $content_file_mime);
     
             $payload = [];
             $catName = "";
@@ -42,7 +42,7 @@
             }
     
             while($stmt->fetch()){
-                array_push($payload, ['id' => $id, 'title' => $title, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id, 'content_file_name' => $content_file_name, 'icon_file_name' => $icon_file_name, 'description' => $description, 'category' => $catName, 'subcategory' => $subName]);
+                array_push($payload, ['id' => $id, 'title' => $title, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id, 'content_file_name' => $content_file_name, 'icon_file_name' => $icon_file_name, 'description' => $description, 'category' => $catName, 'subcategory' => $subName, "file_mime" => $content_file_mime]);
             }
 
             $stmtCount = $mysqli->stmt_init();

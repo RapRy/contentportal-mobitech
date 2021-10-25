@@ -11,18 +11,40 @@
                 $file_name = str_replace(" ", "+", $content['content_file_name']);
         ?>
                 <div class="card-container">
-                    <div class="card-upper-part">
-                        <img src="<?php echo "{$contentDir}/{$category}/{$subcategory}/{$content_name}/{$icon_name}.png"; ?>" alt="<?php echo $content['title']; ?>" />
-                        <div class="upper-part-details" data-category="<?php echo $category; ?>" data-subcategory="<?php echo $subcategory; ?>"></div>
-                    </div>
-                    <div class="card-middle-part">
-                        <h4><?php echo $content['title']; ?></h4>
-                        <div>
-                            <p><?php echo $content['description']; ?></p>
+                    <a href="index.php?category=<?php echo $cat_active; ?>&subcategory=<?php echo $subcat_active; ?>&content=<?php echo $content['id']; ?>">
+                        <div class="card-upper-part">
+                            <?php
+                                if($content['file_mime'] === "audio/mpeg"):
+                            ?>
+                                    <img src="assets/music-thumb.png" alt="<?php echo $content['title']; ?>" />
+                            <?php
+                                elseif($content['file_mime'] === "video/mp4"):
+                            ?>
+                                    <video preload="metadata">
+                                        <source src="<?php echo "{$contentDir}/{$category}/{$subcategory}/{$content_name}/{$file_name}#t=0.5" ?>" type="video/mp4" />
+                                    </video>
+                            <?php
+                                elseif($content['file_mime'] === "image/jpeg"):
+                            ?>
+                                    <img src="<?php echo "{$contentDir}/{$category}/{$subcategory}/{$content_name}/{$content['content_file_name']}"; ?>" alt="<?php echo $content['title']; ?>" />
+                            <?php
+                                else:
+                            ?>
+                                <img src="<?php echo "{$contentDir}/{$category}/{$subcategory}/{$content_name}/{$icon_name}.png"; ?>" alt="<?php echo $content['title']; ?>" />
+                            <?php
+                                endif;
+                            ?>
+                            <div class="upper-part-details" data-category="<?php echo $category; ?>" data-subcategory="<?php echo $subcategory; ?>"></div>
                         </div>
-                    </div>
+                        <div class="card-middle-part">
+                            <h4><?php echo $content['title']; ?></h4>
+                            <div>
+                                <p><?php echo $content['description']; ?></p>
+                            </div>
+                        </div>
+                    </a>
                     <div class="card-lower-part">
-                        <a href="<?php echo "{$contentDir}/{$category}/{$subcategory}/{$content_name}/{$file_name}"; ?>">DOWNLOAD</a>
+                    <a href="<?php echo $content['file_mime'] !== "" ? "{$contentDir}/{$category}/{$subcategory}/{$content_name}/{$file_name}" : "{$content['content_file_name']}" ?>"><?php echo $content['file_mime'] !== "" ? "DOWNLOAD" : "PLAY"; ?></a>
                     </div>
                 </div>
         <?php

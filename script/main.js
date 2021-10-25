@@ -106,13 +106,20 @@ $(() => {
           if (xhr.status === 200) {
             $.each(data["contents"], (i, item) => {
               const {
+                id,
                 category,
                 subcategory,
                 title,
                 description,
                 icon_file_name,
                 content_file_name,
+                category_id,
+                sub_category_id,
+                file_mime,
               } = item;
+
+              let thumbnail;
+              let dlorPlay;
 
               const folderName = title.replaceAll(" ", "+");
               const iconName = icon_file_name.slice(
@@ -121,12 +128,47 @@ $(() => {
               );
               const fileName = content_file_name.replaceAll(" ", "+");
 
+              switch (file_mime) {
+                case "audio/mpeg":
+                  thumbnail = `<img src="assets/music-thumb.png" alt="${title}" />`;
+                  break;
+                case "video/mp4":
+                  thumbnail = `<video preload="metadata">
+                                  <source src="${
+                                    this.contentDir
+                                  }/${category.toLowerCase()}/${subcategory.toLowerCase()}/${folderName.toLowerCase()}/${content_file_name}#t=0.5" type="video/mp4" />
+                                </video>`;
+                  break;
+                case "image/jpeg":
+                  thumbnail = `
+                  <img src="${
+                    this.contentDir
+                  }/${category.toLowerCase()}/${subcategory.toLowerCase()}/${folderName.toLowerCase()}/${content_file_name}" alt="${title}" />
+                  `;
+                  break;
+                default:
+                  thumbnail = `<img src="${
+                    this.contentDir
+                  }/${category.toLowerCase()}/${subcategory.toLowerCase()}/${folderName.toLowerCase()}/${iconName}.png" alt="${title}" />`;
+                  break;
+              }
+
+              switch (file_mime) {
+                case "":
+                  dlorPlay = `<a href="${content_file_name}">PLAY</a>`;
+                  break;
+                default:
+                  dlorPlay = `<a href="${
+                    this.contentDir
+                  }/${category.toLowerCase()}/${subcategory.toLowerCase()}/${folderName.toLowerCase()}/${fileName}">DOWNLOAD</a>`;
+                  break;
+              }
+
               $(".content-list").append(`
                 <div class="card-container">
+                  <a href="index.php?category=${category_id}&subcategory=${sub_category_id}&content=${id}">
                   <div class="card-upper-part">
-                    <img src="${
-                      this.contentDir
-                    }/${category.toLowerCase()}/${subcategory.toLowerCase()}/${folderName.toLowerCase()}/${iconName}.png" alt="${title}" />
+                    ${thumbnail}
                     <div class="upper-part-details" data-category="${category}" data-subcategory="${subcategory}"></div>
                   </div>
                   <div class="card-middle-part">
@@ -135,10 +177,9 @@ $(() => {
                       <p>${description}</p>
                     </div>
                   </div>
+                  </a>
                   <div class="card-lower-part">
-                    <a href="${
-                      this.contentDir
-                    }/${category.toLowerCase()}/${subcategory.toLowerCase()}/${folderName.toLowerCase()}/${fileName}">DOWNLOAD</a>
+                    ${dlorPlay}
                   </div>
                 </div>
               `);
@@ -168,4 +209,11 @@ $(() => {
   navigation.events();
   subnavigation.events();
   contents.events();
+
+  if ($(".screenshots-container").length > 0) {
+    $(".screenshots-container").slick({
+      prevArrow: `<button type="button" class="slick-prev screenshot-btn"><i class="material-icons subcat-next">chevron_left</i></button>`,
+      nextArrow: `<button type="button" class="slick-prev screenshot-btn"><i class="material-icons subcat-prev">chevron_right</i></button>`,
+    });
+  }
 });

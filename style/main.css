@@ -437,7 +437,8 @@ body {
   height: 80px;
 }
 
-.content-list-container .content-list .card-container .card-upper-part img {
+.content-list-container .content-list .card-container .card-upper-part img,
+.content-list-container .content-list .card-container .card-upper-part video {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -445,6 +446,11 @@ body {
   top: 0;
   left: 10px;
   z-index: 2;
+}
+
+.content-list-container .content-list .card-container .card-upper-part video {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .content-list-container .content-list .card-container .card-upper-part .upper-part-details {
@@ -582,6 +588,265 @@ body {
   display: block;
   border: none;
   cursor: pointer;
+}
+
+.latest-contents-home-container,
+.similar-contents-home-container {
+  padding: 0 30px 50px;
+}
+
+.latest-contents-home-container h4,
+.similar-contents-home-container h4 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #0096ff;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #fafcfc;
+}
+
+.latest-contents-home-container .latest-contents-home,
+.latest-contents-home-container .similar-contents-home,
+.similar-contents-home-container .latest-contents-home,
+.similar-contents-home-container .similar-contents-home {
+  -webkit-column-count: 2;
+          column-count: 2;
+  -webkit-column-gap: 40px;
+          column-gap: 40px;
+  margin-top: 30px;
+}
+
+.latest-contents-home-container .latest-contents-home .small-content-container,
+.latest-contents-home-container .similar-contents-home .small-content-container,
+.similar-contents-home-container .latest-contents-home .small-content-container,
+.similar-contents-home-container .similar-contents-home .small-content-container {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.latest-contents-home-container .latest-contents-home .small-content-container img,
+.latest-contents-home-container .latest-contents-home .small-content-container video,
+.latest-contents-home-container .similar-contents-home .small-content-container img,
+.latest-contents-home-container .similar-contents-home .small-content-container video,
+.similar-contents-home-container .latest-contents-home .small-content-container img,
+.similar-contents-home-container .latest-contents-home .small-content-container video,
+.similar-contents-home-container .similar-contents-home .small-content-container img,
+.similar-contents-home-container .similar-contents-home .small-content-container video {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+.latest-contents-home-container .latest-contents-home .small-content-container video,
+.latest-contents-home-container .similar-contents-home .small-content-container video,
+.similar-contents-home-container .latest-contents-home .small-content-container video,
+.similar-contents-home-container .similar-contents-home .small-content-container video {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.latest-contents-home-container .latest-contents-home .small-content-container p,
+.latest-contents-home-container .similar-contents-home .small-content-container p,
+.similar-contents-home-container .latest-contents-home .small-content-container p,
+.similar-contents-home-container .similar-contents-home .small-content-container p {
+  color: #fafcfc;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.preview-container {
+  margin-bottom: 50px;
+}
+
+.preview-container .preview {
+  position: relative;
+}
+
+.preview-container .preview .preview-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  z-index: -1;
+}
+
+.preview-container .preview .preview-bg div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.preview-container .preview .preview-bg div::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(13, 27, 42, 0)), to(#0d1b2a));
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0) 0%, #0d1b2a 100%);
+}
+
+.preview-container .preview .preview-bg div img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.preview-container .preview .preview-details {
+  position: relative;
+  top: 80px;
+  left: 0;
+  text-align: center;
+  padding: 0 30px;
+}
+
+.preview-container .preview .preview-details .preview-thumb img,
+.preview-container .preview .preview-details .preview-thumb video {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.preview-container .preview .preview-details .preview-name h2 {
+  font-size: 1.4rem;
+  color: #fafcfc;
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+
+.preview-container .preview .preview-details .preview-name span {
+  font-size: 0.9rem;
+  color: #fafcfc;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.preview-container .preview .preview-details .preview-name .preview-download {
+  width: 200px;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  color: #fafcfc;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.preview-container .preview .preview-details .preview-name .preview-download:hover::before, .preview-container .preview .preview-details .preview-name .preview-download:active::before {
+  top: 0%;
+}
+
+.preview-container .preview .preview-details .preview-name .preview-download:hover::after, .preview-container .preview .preview-details .preview-name .preview-download:active::after {
+  top: 100%;
+}
+
+.preview-container .preview .preview-details .preview-name .preview-download::after, .preview-container .preview .preview-details .preview-name .preview-download::before {
+  -webkit-transition: top 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: top 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.preview-container .preview .preview-details .preview-name .preview-download::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  background-color: #2ebbc0;
+  z-index: -1;
+}
+
+.preview-container .preview .preview-details .preview-name .preview-download::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: -100%;
+  display: block;
+  background-color: #0096ff;
+  z-index: -1;
+}
+
+.preview-container .preview .preview-details p {
+  font-size: 0.9rem;
+  color: #fafcfc;
+  line-height: 25px;
+  text-align: justify;
+  margin-top: 30px;
+}
+
+.preview-container .preview .preview-add-details {
+  margin-top: 120px;
+}
+
+.preview-container .preview .preview-add-details .screenshots-container {
+  position: relative;
+}
+
+.preview-container .preview .preview-add-details .screenshots-container .screenshot-btn {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 2;
+  border: none;
+  background: rgba(13, 27, 42, 0.63);
+}
+
+.preview-container .preview .preview-add-details .screenshots-container .screenshot-btn:first-child {
+  left: 0;
+}
+
+.preview-container .preview .preview-add-details .screenshots-container .screenshot-btn:last-child {
+  right: 0;
+}
+
+.preview-container .preview .preview-add-details .screenshots-container .screenshot-btn i {
+  font-size: 3rem;
+  color: #fafcfc;
+}
+
+.preview-container .preview .preview-add-details .screenshots-container img {
+  height: 250px;
+}
+
+.preview-container .preview .preview-add-details .video-container,
+.preview-container .preview .preview-add-details .audio-container,
+.preview-container .preview .preview-add-details .wallpaper-container {
+  padding: 0 30px;
+}
+
+.preview-container .preview .preview-add-details .video-container video,
+.preview-container .preview .preview-add-details .video-container audio,
+.preview-container .preview .preview-add-details .video-container img,
+.preview-container .preview .preview-add-details .audio-container video,
+.preview-container .preview .preview-add-details .audio-container audio,
+.preview-container .preview .preview-add-details .audio-container img,
+.preview-container .preview .preview-add-details .wallpaper-container video,
+.preview-container .preview .preview-add-details .wallpaper-container audio,
+.preview-container .preview .preview-add-details .wallpaper-container img {
+  width: 100%;
 }
 
 .gradient-anim {
