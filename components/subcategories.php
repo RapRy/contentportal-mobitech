@@ -13,7 +13,7 @@
 
                 foreach($subcategories as $subcategory):
             ?>
-                    <a href="<?php echo "index.php?category={$cat_active}&subcategory={$subcategory['id']}"; ?>"><?php echo $subcategory['sub_category']; ?></a>
+                    <a class="<?php echo $subcat_active === $subcategory['id'] ? "active" : ""; ?>" href="<?php echo "index.php?category={$cat_active}&subcategory={$subcategory['id']}"; ?>"><?php echo $subcategory['sub_category']; ?></a>
             <?php
                 endforeach;
             ?>

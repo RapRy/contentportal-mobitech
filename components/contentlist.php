@@ -1,8 +1,11 @@
+<?php
+    $contents = get_contents($mysqli, $cat_active, $subcat_active);
+
+    if(count($contents) > 0):
+?>
 <section class="content-list-container">
     <div class="content-list">
         <?php
-            $contents = get_contents($mysqli, $cat_active, $subcat_active);
-
             foreach($contents as $content):
                 $category = strtolower(get_category($mysqli, $cat_active));
                 $subcategory = strtolower(get_subcategory($mysqli, $subcat_active));
@@ -70,3 +73,8 @@
         </div>
     </template>
 </section>
+<?php
+    else:
+        include('./components/empty.php');
+    endif;
+?>

@@ -25,6 +25,14 @@ $(() => {
       }
     };
 
+    setMainNavOpacity = () => {
+      if (window.matchMedia("(min-width: 950px)").matches) {
+        $(".nav-mobile-container").css({ opacity: 1 });
+      } else {
+        $(".nav-mobile-container").css({ opacity: 0 });
+      }
+    };
+
     events = () => {
       $(".burger-icon").on("click", this.setToggleMobileMenu);
       $(".nav-mobile-container i").on("click", this.setToggleMobileMenu);
@@ -72,6 +80,21 @@ $(() => {
         $(".subcategories").css({
           transform: `translateX(${prevValueXPositive - 80}px)`,
         });
+      }
+    };
+
+    hideArrowButtons = () => {
+      if (
+        $(".subcategories").outerWidth() + 60 <
+        $(".subcategories-container").outerWidth()
+      ) {
+        $(".subcat-next").css({ display: "none" });
+        $(".subcat-prev").css({ display: "none" });
+      } else {
+        if (!window.matchMedia("(min-width: 950px)").matches) {
+          $(".subcat-next").css({ display: "block" });
+          $(".subcat-prev").css({ display: "block" });
+        }
       }
     };
 
@@ -197,6 +220,17 @@ $(() => {
       });
     };
 
+    showScreenshotsButtons = () => {
+      if ($(".screenshots-container").length > 0) {
+        $(".screenshots-container").slick({
+          prevArrow: `<button type="button" class="slick-prev screenshot-btn"><i class="material-icons subcat-next">chevron_left</i></button>`,
+          nextArrow: `<button type="button" class="slick-prev screenshot-btn"><i class="material-icons subcat-prev">chevron_right</i></button>`,
+          adaptiveHeight: true,
+          mobileFirst: true,
+        });
+      }
+    };
+
     events = () => {
       $(".show-more-btn").on("click", this.fetchContents);
     };
@@ -208,12 +242,12 @@ $(() => {
 
   navigation.events();
   subnavigation.events();
+  subnavigation.hideArrowButtons();
   contents.events();
+  contents.showScreenshotsButtons();
 
-  if ($(".screenshots-container").length > 0) {
-    $(".screenshots-container").slick({
-      prevArrow: `<button type="button" class="slick-prev screenshot-btn"><i class="material-icons subcat-next">chevron_left</i></button>`,
-      nextArrow: `<button type="button" class="slick-prev screenshot-btn"><i class="material-icons subcat-prev">chevron_right</i></button>`,
-    });
-  }
+  $(window).on("resize", (e) => {
+    subnavigation.hideArrowButtons();
+    navigation.setMainNavOpacity();
+  });
 });
